@@ -1,4 +1,3 @@
-
 :root {
   --background: #fcf9f7;
   --text: #302b30;
@@ -47,7 +46,7 @@ a {
 .hero-art {
   position: relative;
   width: 100%;
-  line-height: 0;
+  line-height: normal;
 }
 
 .hero-image {
@@ -60,55 +59,70 @@ a {
   border-radius: 0;
 }
 
-/* КНОПКА НА ЭКРАНЕ НОУТБУКА */
+/* БОЛЬШАЯ НЕОНОВАЯ КНОПКА */
 
 .hero-button {
-  position: absolute;
-  left: 25.6%;
-  top: 78.4%;
-  width: 26.9%;
-  height: 5.1%;
-
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 14px;
 
+  width: min(680px, calc(100% - 36px));
+  min-height: 74px;
+  margin: 18px auto 28px;
+  padding: 17px 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 999px;
-  overflow: hidden;
 
   color: #ffffff;
-  font-size: clamp(7px, 1.12vw, 20px);
-  font-weight: 700;
-  line-height: 1.1;
-  white-space: nowrap;
+  font-family: inherit;
+  font-size: clamp(17px, 3.8vw, 23px);
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
 
   background: linear-gradient(
     110deg,
-    #aa557c,
-    #e782aa,
-    #b85d85,
-    #ef9abc,
-    #aa557c
+    #b84d7b,
+    #e889b0,
+    #c05a88,
+    #f09bbd,
+    #b84d7b
   );
 
   background-size: 300% 100%;
-  border: 1px solid rgba(255, 255, 255, 0.7);
 
   animation:
     pinkFlow 4s linear infinite,
     neonPulse 2.6s ease-in-out infinite;
 
-  z-index: 3;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .hero-button:hover {
-  filter: brightness(1.1);
+  transform: translateY(-2px);
 }
 
 .hero-button:focus-visible {
-  outline: 2px solid #9d356c;
-  outline-offset: 3px;
+  outline: 3px solid #9d356c;
+  outline-offset: 4px;
+}
+
+.hero-arrow {
+  flex: 0 0 auto;
+  font-size: 32px;
+  line-height: 1;
+  color: #fff;
+
+  text-shadow:
+    0 0 5px #fff,
+    0 0 12px #ffd3e8,
+    0 0 22px #ff8dbf;
+
+  animation: arrowGlow 2s ease-in-out infinite;
 }
 
 /* АНИМАЦИИ */
@@ -574,6 +588,7 @@ footer small {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-button,
+  .hero-arrow,
   .project-button,
   .project-arrow,
   .contact-button {
