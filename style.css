@@ -1,0 +1,582 @@
+
+:root {
+  --background: #fcf9f7;
+  --text: #302b30;
+  --muted: #81777e;
+  --rose: #ac708c;
+  --rose-dark: #a94872;
+  --border: #eddee5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ГЛАВНЫЙ ЭКРАН */
+
+.hero {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #f8dce4;
+}
+
+.hero-art {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+/* КНОПКА НА ЭКРАНЕ НОУТБУКА */
+
+.hero-button {
+  position: absolute;
+  left: 25.6%;
+  top: 78.4%;
+  width: 26.9%;
+  height: 5.1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  overflow: hidden;
+
+  color: #ffffff;
+  font-size: clamp(7px, 1.12vw, 20px);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+
+  background: linear-gradient(
+    110deg,
+    #aa557c,
+    #e782aa,
+    #b85d85,
+    #ef9abc,
+    #aa557c
+  );
+
+  background-size: 300% 100%;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  animation:
+    pinkFlow 4s linear infinite,
+    neonPulse 2.6s ease-in-out infinite;
+
+  z-index: 3;
+  cursor: pointer;
+}
+
+.hero-button:hover {
+  filter: brightness(1.1);
+}
+
+.hero-button:focus-visible {
+  outline: 2px solid #9d356c;
+  outline-offset: 3px;
+}
+
+/* АНИМАЦИИ */
+
+@keyframes pinkFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 5px rgba(255, 139, 194, 0.6),
+      0 0 12px rgba(255, 126, 184, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 9px rgba(255, 169, 210, 1),
+      0 0 22px rgba(255, 126, 184, 0.7);
+  }
+}
+
+/* ОБЩИЕ СЕКЦИИ */
+
+.content-section {
+  padding: 95px 24px;
+}
+
+.section-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  color: var(--rose);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.content-section h2,
+.contact-section h2 {
+  margin: 0;
+  font-size: clamp(32px, 4.4vw, 62px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+
+h2 em {
+  color: var(--rose);
+  font-style: normal;
+}
+
+.section-description {
+  max-width: 790px;
+  margin: 24px auto 0;
+  color: var(--muted);
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.65;
+  text-align: center;
+}
+
+/* ПРЕИМУЩЕСТВА */
+
+.benefits-grid,
+.prices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 55px;
+}
+
+.info-card {
+  padding: 34px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.card-number {
+  display: block;
+  margin-bottom: 35px;
+  color: var(--rose);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.info-card h3 {
+  margin: 0 0 14px;
+  font-size: 24px;
+}
+
+.info-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* ТАРИФЫ */
+
+.services-section {
+  background: #f8f1f4;
+}
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+  border-radius: 26px;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.price-card.featured {
+  border-color: #d69ab5;
+  box-shadow: 0 12px 35px rgba(170, 93, 132, 0.09);
+}
+
+.price-label {
+  margin: 0 0 25px;
+  color: var(--rose);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.price-card h3 {
+  margin: 0 0 15px;
+  font-size: 25px;
+}
+
+.price-card > p:not(.price-label) {
+  margin: 0 0 30px;
+  color: var(--muted);
+  line-height: 1.65;
+  flex-grow: 1;
+}
+
+.price {
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.price-kzt {
+  margin-top: 5px;
+  color: var(--rose-dark);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.price-card a {
+  display: block;
+  margin-top: 28px;
+  padding: 16px;
+  border-radius: 999px;
+  background: var(--text);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+}
+
+.price-note {
+  margin: 28px auto 0;
+  max-width: 100%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.price-note-line {
+  display: block;
+  white-space: nowrap;
+}
+
+/* МОИ ПРОЕКТЫ */
+
+.projects-section {
+  background: #fcf9f7;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  margin-top: 55px;
+  align-items: start;
+}
+
+.project-card {
+  min-width: 0;
+  padding: 16px 16px 26px;
+  border-radius: 30px;
+  background: linear-gradient(
+    145deg,
+    #fff8fb,
+    #f7e8ee,
+    #fdf9f8
+  );
+  border: 1px solid #f1dce5;
+  box-shadow: 0 12px 40px rgba(172, 112, 140, 0.07);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.project-action {
+  padding: 24px 10px 0;
+  text-align: center;
+}
+
+.project-button {
+  width: 100%;
+  min-height: 62px;
+  padding: 15px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+
+  background: linear-gradient(
+    110deg,
+    #b84d7b,
+    #e889b0,
+    #c05a88,
+    #f09bbd,
+    #b84d7b
+  );
+  background-size: 300% 100%;
+
+  color: #fff;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  text-align: center;
+
+  cursor: pointer;
+
+  animation:
+    pinkFlow 4s linear infinite,
+    projectGlow 2.8s ease-in-out infinite;
+
+  transition: transform 0.2s ease;
+}
+
+.project-button:hover {
+  transform: translateY(-3px);
+}
+
+.project-button:focus-visible {
+  outline: 3px solid #9d356c;
+  outline-offset: 4px;
+}
+
+.project-arrow {
+  display: inline-block;
+  font-size: 28px;
+  line-height: 1;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #ffd3e8,
+    0 0 18px #ff8dbf;
+
+  animation: arrowGlow 2s ease-in-out infinite;
+}
+
+@keyframes projectGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(255, 140, 195, 0.5),
+      0 0 18px rgba(233, 116, 170, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(255, 158, 205, 0.9),
+      0 0 28px rgba(233, 116, 170, 0.55);
+  }
+}
+
+@keyframes arrowGlow {
+  0%, 100% {
+    filter: brightness(1);
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #ffd3e8;
+  }
+  50% {
+    filter: brightness(1.3);
+    text-shadow:
+      0 0 8px #fff,
+      0 0 16px #fff,
+      0 0 25px #ff9cc8;
+  }
+}
+
+.projects-note {
+  max-width: 720px;
+  margin: 35px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* КОНТАКТ */
+
+.contact-section {
+  padding: 90px 24px;
+}
+
+.contact-section .section-inner {
+  padding: 75px 28px;
+  border-radius: 36px;
+  background: linear-gradient(
+    130deg,
+    #f5e8e6,
+    #f0d6e1,
+    #f9edf2
+  );
+  text-align: center;
+}
+
+.contact-section h2 span {
+  display: block;
+  color: var(--rose);
+}
+
+.contact-section p:not(.eyebrow) {
+  max-width: 850px;
+  margin: 25px auto 32px;
+  color: #746a70;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.contact-description-line {
+  display: block;
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 19px 32px;
+  border-radius: 999px;
+  background: #302b30;
+  color: #fff;
+  font-weight: 700;
+
+  animation: blackNeon 2.7s ease-in-out infinite;
+}
+
+.contact-button span {
+  font-size: 22px;
+  line-height: 1;
+}
+
+@keyframes blackNeon {
+  0%, 100% {
+    box-shadow:
+      0 0 7px rgba(48, 43, 48, 0.4),
+      0 0 14px rgba(48, 43, 48, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(48, 43, 48, 0.7),
+      0 0 25px rgba(48, 43, 48, 0.4);
+  }
+}
+
+/* ПОДВАЛ */
+
+footer {
+  padding: 55px 24px;
+  text-align: center;
+}
+
+footer strong {
+  font-size: 23px;
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+footer small {
+  display: block;
+  margin-top: 30px;
+  color: var(--muted);
+}
+
+/* МОБИЛЬНЫЕ ЭКРАНЫ */
+
+@media (max-width: 760px) {
+  .content-section {
+    padding: 65px 18px;
+  }
+
+  .benefits-grid,
+  .prices-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 35px;
+  }
+
+  .info-card,
+  .price-card {
+    padding: 26px;
+  }
+
+  .project-card {
+    padding: 12px 12px 22px;
+    border-radius: 24px;
+  }
+
+  .project-image {
+    border-radius: 16px;
+  }
+
+  .project-button {
+    min-height: 58px;
+    font-size: 16px;
+  }
+
+  .price-note-line {
+    white-space: normal;
+  }
+
+  .contact-section {
+    padding: 50px 16px;
+  }
+
+  .contact-section .section-inner {
+    padding: 55px 22px;
+    border-radius: 25px;
+  }
+
+  .contact-section p:not(.eyebrow) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-button,
+  .project-button,
+  .project-arrow,
+  .contact-button {
+    animation: none;
+  }
+}
